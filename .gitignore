@@ -1,0 +1,5 @@
+myjob-waiting-import.json
+*backup*.json
+.env
+.env.*
+node_modules/

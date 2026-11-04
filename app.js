@@ -68,5 +68,15 @@ async function analyzeZalo(){
 $('#zaloAnalyze').onclick=analyzeZalo;
 $('#zaloClear').onclick=()=>{$('#zaloText').value='';$('#zaloImage').value='';$('#zaloStatus').textContent='';$('#zaloDraft').classList.add('hidden')};
 
+window.JessicaBridge={
+  getOrders:()=>JSON.parse(JSON.stringify(orders)),
+  replaceOrders:(incoming)=>{
+    if(!Array.isArray(incoming)||!incoming.every(o=>o&&typeof o.id==='string'&&typeof o.zalo==='string'&&Number.isFinite(o.amount)))throw Error('Order nhập không hợp lệ');
+    const previous=orders;
+    orders=JSON.parse(JSON.stringify(incoming));
+    if(!save()){orders=previous;throw Error('Thiết bị không lưu được dữ liệu')}
+    render();
+  }
+};
 $('#deadline').value=begin();$('#receivedAt').value=today();$('#reportDate').value=today();$('#reportDate').onchange=renderIncome;amountPreview();render();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 })();
