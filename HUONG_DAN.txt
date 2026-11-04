@@ -1,0 +1,9 @@
+JESSICA DAILY V2.1 READY – HƯỚNG DẪN TRIỂN KHAI
+1. Mở app đang dùng -> Tìm kiếm & Thu nhập -> Xuất JSON. Cất tệp sao lưu.
+2. Giải nén ZIP này, tải TẤT CẢ file và thư mục api lên repository GitHub nối với Vercel.
+3. Vercel deploy; mở https://jessdaily-ok.vercel.app và tải lại trang.
+4. Kiểm tra order hiện tại còn nguyên; nhập một order thử; xác nhận hoàn thành rồi kiểm tra thu nhập.
+5. Nhập MY JOB: chọn Nhập thêm order từ MY JOB, tải myjob-waiting-import.json. Nhập lại tệp không tạo bản ghi trùng có cùng ID.
+6. Ảnh Zalo: Vercel > Settings > Environment Variables > GEMINI_API_KEY; redeploy.
+LƯU Ý: Ứng dụng hiện lưu bằng localStorage của trình duyệt. KHÔNG đồng bộ giữa thiết bị, KHÔNG có tài khoản đăng nhập, KHÔNG sao lưu cloud tự động. Dùng một thiết bị chính và xuất JSON định kỳ.
+Khóa API Gemini phải được giữ trong Vercel, không đưa vào GitHub. Endpoint AI chưa có xác thực hoặc rate limit; không nên chia sẻ link rộng rãi khi bật API.
